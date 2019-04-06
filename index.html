@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="first"></div>
+    </n>
+    <div id="last"></div>
+    </n>
+    <div id="idnumber"></div>
+    </n>
+    <div id="salary"></div>
+    </n>
+
+    <script>
+
+        var url = "https://spreadsheets.google.com/feeds/cells/1M_iLktGzX8BVPxOwK42u86efyL1iuN79xStkNpMfupY/od6/public/basic?alt=json";
+
+
+        $.ajax({
+            url: url,
+            dataType: "jsonp",
+            success: function (data) {
+
+                document.getElementById('first').innerHTML = data.feed.entry[0].content.$t;
+                document.getElementById('last').innerHTML = data.feed.entry[1].content.$t;
+                document.getElementById('idnumber').innerHTML = data.feed.entry[2].content.$t;
+                document.getElementById('salary').innerHTML = data.feed.entry[3].content.$t;
+            },
+        });
+
+    </script>
+</body>
+
+</html>
