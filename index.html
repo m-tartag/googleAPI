@@ -21,7 +21,7 @@
 
     <script>
 
-        var url = "https://spreadsheets.google.com/feeds/cells/1M_iLktGzX8BVPxOwK42u86efyL1iuN79xStkNpMfupY/od6/public/basic?alt=json";
+        const url = "https://spreadsheets.google.com/feeds/cells/1M_iLktGzX8BVPxOwK42u86efyL1iuN79xStkNpMfupY/od6/public/basic?alt=json";
 
 
         $.ajax({
@@ -29,10 +29,10 @@
             dataType: "jsonp",
             success: function (data) {
 
-                document.getElementById('first').innerHTML = data.feed.entry[0].content.$t;
-                document.getElementById('last').innerHTML = data.feed.entry[1].content.$t;
-                document.getElementById('idnumber').innerHTML = data.feed.entry[2].content.$t;
-                document.getElementById('salary').innerHTML = data.feed.entry[3].content.$t;
+                document.getElementById('first').innerHTML = `First: ${data.feed.entry[0].content.$t}`;
+                document.getElementById('last').innerHTML = `Last: ${data.feed.entry[1].content.$t}`;
+                document.getElementById('idnumber').innerHTML = `ID: ${data.feed.entry[2].content.$t}`;
+                document.getElementById('salary').innerHTML = `Salary: ${data.feed.entry[3].content.$t}`;
             },
         });
 
